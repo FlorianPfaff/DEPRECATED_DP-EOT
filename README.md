@@ -1,8 +1,42 @@
-# DP-EOT
+# DEPRECATED_DP-EOT
+
+## Discontinued: What We Learned
+
+**This research direction was discontinued.** Marked deprecated on 2026-11-11.
+The code and experiment history are retained for reproducibility, not as an
+actively developed tracker or evidence of a new method.
+
+- The original proof of concept overstated the evidence: exact initialization,
+  deterministic motion, annotation-only merge intervals, and restricted
+  comparators made favorable identity results insufficient to establish novelty.
+- The corrected study used 2,400 held-out scenarios and 14,400 confirmation
+  method runs. Aggregate measurements improved localization over coasting in
+  several conditions, but matched labeled joint-state inference produced
+  identical results. That equality is an algebraic control sharing the numerical
+  core, not an independent state-of-the-art comparison.
+- Robustness remained limited. High-acceleration recovery noninferiority was
+  unresolved, maneuvering reduced nominal 95% ellipse coverage to 82.4%, and
+  beam-width sensitivity was substantial. Strong pooled detector scores did not
+  imply uniformly reliable behavior across conditions.
+- The practical lesson is to distinguish useful measurement information from a
+  new representation: change the actual sensor observations, separate truth from
+  tracker inputs, match baseline information and budgets, and report identity,
+  uncertainty, and failure cases rather than favorable averages alone.
+
+**Why we stopped:** the corrected study did not pass the full mechanism or
+representation-specific contribution gates. A benefit over coasting was not a
+new group-tracking contribution, and no DP-specific benefit was established.
+The conditional broader stress grid and DP expansion were therefore not run.
+This is not a general disproof of group tracking or Dirichlet-process methods;
+reopening this line would require a distinct mechanism, computation advantage,
+or theoretical result beyond matched labeled joint inference.
+
+See the [research decision and supporting evidence](https://github.com/FlorianPfaff/DEPRECATED_2026-07-DP-EOT-Paper/blob/main/results/group_value_v1/research_decision.md)
+and the [deprecated paper/results repository](https://github.com/FlorianPfaff/DEPRECATED_2026-07-DP-EOT-Paper).
 
 ## Corrected study
 
-The current research question is whether aggregate measurements improve tracking
+The corrected study asked whether aggregate measurements improve tracking
 beyond preserving labeled tracks through ambiguity, and whether an explicit group
 representation adds value over matched labeled joint-state inference. The
 [locked study protocol](docs/group_value_protocol.md) specifies the corrected
@@ -15,7 +49,7 @@ in several conditions, but the group and matched labeled-joint implementations
 were identical. Recovery noninferiority was unresolved under high acceleration;
 maneuvers exposed uncertainty and beam-budget failures. The decision is to
 **stop the current new-method/DP-superiority claim**, not expand it with more
-baselines. See the [research decision and complete artifacts](https://github.com/FlorianPfaff/2026-07-DP-EOT-Paper/blob/main/results/group_value_v1/research_decision.md).
+baselines. See the [research decision and complete artifacts](https://github.com/FlorianPfaff/DEPRECATED_2026-07-DP-EOT-Paper/blob/main/results/group_value_v1/research_decision.md).
 
 The frozen simulation revision is `543d60c1461bbf2fedc1dcfd7a35536b06627b15`.
 Reporting and test-only changes after it do not alter the simulation fingerprint.
